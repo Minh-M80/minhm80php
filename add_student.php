@@ -16,28 +16,28 @@
 
     <?php
     if (isset($_POST['submit'])) {
-        // 1. Nhúng file kết nối DB
+        
         require "db_connect.php";
 
-        // 2. Lấy dữ liệu từ POST
+       
         $fullname = $_POST['fullname'];
         $student_code = $_POST['student_code'];
         $email = $_POST['email'];
 
-        // 3. Prepared Statement (KHÔNG NỐI CHUỖI)
+       
         $sql = "INSERT INTO students (fullname, student_code, email)
                 VALUES (:fullname, :student_code, :email)";
 
         $stmt = $conn->prepare($sql);
 
-        // 4. Execute
+       
         $stmt->execute([
             ':fullname' => $fullname,
             ':student_code' => $student_code,
             ':email' => $email
         ]);
 
-        // 5. Thông báo
+        
         echo "<p style='color:green'>Thêm sinh viên thành công!</p>";
     }
     ?>

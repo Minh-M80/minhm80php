@@ -22,15 +22,15 @@
     <h2>Danh sách sinh viên</h2>
 
     <?php
-    // 1. Kết nối DB
+    
     require "db_connect.php";
 
-    // 2. SELECT
+   
     $sql = "SELECT * FROM students";
     $stmt = $conn->prepare($sql);
     $stmt->execute();
 
-    // 3. fetchAll
+  
     $students = $stmt->fetchAll(PDO::FETCH_ASSOC);
     ?>
 
